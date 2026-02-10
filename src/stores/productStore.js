@@ -10,14 +10,9 @@ export const useProductStore = defineStore('product', () => {
   })
   async function getProducts(category) {
     try {
-      await axiosInstance.get(`products${category}`,{
-        // params: {
-        //   limit: 1,
-        // },
-      })
+      await axiosInstance.get(`products${category}`,{})
         .then(response => {
           state.products = response.data;
-          // console.log(response.data);
         })
     } catch (error) {
       state.error = error;

@@ -115,8 +115,7 @@ button {
     margin: 15px;
     padding: 15px;
     color: black;
-    box-shadow: 5px -5px 5px rgb(163, 163, 163);
-    border: solid 1px rgb(102, 102, 102);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .img {
     max-width: 100px;

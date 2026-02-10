@@ -17,8 +17,9 @@
     </div>
     <div v-if="!errors">
         <div v-for="(product, index) in productToShow" 
-        :key="index"
-        @click="goToProduct(product.id)">
+            :key="index"
+            @click="goToProduct(product.id)"
+        >
             <product 
                 :product="product"
             />
@@ -26,7 +27,7 @@
     </div>
     <div v-else>
         <p class="error">
-            There is some mistake on the server
+            No data found
         </p>
     </div>
 </template>

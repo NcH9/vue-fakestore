@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/HomeView.vue'
+import Home from '../components/HomeView.vue'
 import IconSupport from '@/components/icons/IconSupport.vue'
 import { useAdminStore } from '@/stores/adminStore'
 
@@ -17,12 +17,12 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../components/AboutView.vue')
     },
     {
       path: '/bag',
       name: 'bag',
-      component: () => import('../views/Bag.vue')
+      component: () => import('../components/Bag.vue')
     },
     {
       path: '/product/:id',
@@ -48,22 +48,22 @@ const router = createRouter({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('../views/Profile.vue'),
+      component: () => import('../components/Profile.vue'),
     },
     {
       path: '/search',
       name: 'search',
-      component: () => import('../views/Search.vue'),
+      component: () => import('../components/Search.vue'),
     },
     {
       path: '/admin',
       name: 'admin-panel',
-      component: () => import('../views/Admin.vue'),
+      component: () => import('../components/Admin.vue'),
     },
     {
       path: '/NotFound',
       name: 'NotFound',
-      component: () => import('../views/NotFound.vue'),
+      component: () => import('../components/NotFound.vue'),
     },
   ]
 })
@@ -73,11 +73,10 @@ router.beforeEach((to, from, next) => {
   const admin = useAdminStore();
   admin.getIsUserAdmin();
   if (to.path === '/admin' && !admin.isAdmin) {
-    next('/NotFound'); // Если не авторизован, перенаправляем на страницу логина
+    next('/NotFound');
   } else {
-    next(); // Переходим на нужный маршрут
+    next();
   }
 })
-// admin.setUserAdmin(true);
 
 export default router

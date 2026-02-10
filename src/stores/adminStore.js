@@ -29,25 +29,3 @@ export const useAdminStore = defineStore('admin', {
         },
     },
 });
-
-// const 
-//   isAdmin = ref(false),
-//   users = ref([]);
-// async function getUsers(){
-//   const usersRef = collection(db, 'users');
-//   const q = query(usersRef);
-//   const querySnapshot = await getDocs(q);
-//   users.value = querySnapshot.docs.map((doc)=>{
-//     return {
-//       id: doc.id,
-//       ...doc.data()
-//     }
-//   })
-// };
-// function getIsUserAdmin() {
-//   if (auth.currentUser){
-//     const user = users.value.find(user => user.userUID === auth.currentUser.uid);
-//     // console.log(user.isAdmin)
-//     isAdmin.value = user.isAdmin
-//   }
-// };
